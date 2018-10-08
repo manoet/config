@@ -1,0 +1,28 @@
+#!/bin/sh
+#
+# fluxbox startup-script:
+#
+# Lines starting with a '#' are ignored.
+
+# Applications you want to run with fluxbox.
+# MAKE SURE THAT APPS THAT KEEP RUNNING HAVE AN ''&'' AT THE END.
+# Num lock
+numlockx &
+# Composite manager
+sleep 1 && xcompmgr -n &
+# Background
+~/.scripts/fehbg
+~/.scripts/batterymonitor 30 &
+wicd-client -t &
+# Enable touchpad
+~/.scripts/touchpad.sh
+# Remap caps lock as colon (useful for Vim)
+xmodmap -e 'clear Lock'
+xmodmap -e 'keycode 66 = colon'
+clipit &
+conky -c ~/.scripts/conkyrc &
+/usr/lib/notification-daemon-1.0/notification-daemon &
+
+# And last but not least we start fluxbox.
+# Because it is the last app you have to run it with ''exec'' before it.
+exec fluxbox
