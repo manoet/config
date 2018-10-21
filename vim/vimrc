@@ -15,6 +15,8 @@
 
 " Change tabstop to 2 for cpp files
 autocmd Filetype cpp setlocal ts=2 sw=2 expandtab
+" Disable expandtab for go files
+autocmd Filetype go set expandtab!
 
 set encoding=utf-8
 set list listchars=tab:>-,trail:·
