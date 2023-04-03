@@ -1,0 +1,16 @@
+# 
+# /etc/fstab: static file system information
+#
+# <file system>	<dir>	<type>	<options>	<dump>	<pass>
+# /dev/sdb1
+UUID=61ab93d3-073b-4722-ba66-8bfebfbcb8a3	/         	ext4      	rw,noatime,nodiratime,data=ordered,commit=100,discard	0 1
+
+# /dev/sda1 LABEL=SYSTEM
+UUID=8CEB-A286      	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro	0 2
+#tmpfs 					/var/log	tmpfs		noatime,mode=1755	0 0
+#tmpfs					/var/run	tmpfs		noatime,mode=1755	0 0 
+#tmpfs					/var/lock	tmpfs		noatime,mode=1755	0 0
+/dev/sdc1				/media/usb0		auto	noauto,gid=wheel,uid=root,rw,users,umask=0007,exec,noatime,nofail  0 0
+/dev/sda5				/mnt/data		auto	auto,gid=wheel,uid=root,rw,users,umask=0007,exec,noatime,nofail  0 0
+/dev/sda8				/mnt/deb		ext4	auto,rw,users,exec,noatime  0 0	
+/dev/sda7				none			swap	sw							0 0
