@@ -82,6 +82,3 @@ ${fs_bar /mnt/deb}
 $endif${if_mounted  /media/usb0}usb $alignc ${fs_used /media/usb0} / ${fs_size /media/usb0} $alignr ${fs_free_perc /media/usb0}%
 ${fs_bar /media/usb0}
 $endif
-
-${color white}TODO${color lightgray}
-${execi 30 cat /home/manoet/.todo}

@@ -1,2 +1,22 @@
-#!/bin/sh
-feh --bg-scale ~/.fluxbox/aurora.jpg
+#!/usr/bin/python
+
+import os
+import subprocess
+
+scripts_dir = os.path.expanduser('~/.scripts')
+pictures_dir = os.path.join(scripts_dir, 'pictures')
+
+with open(os.path.join(scripts_dir, 'pic'), 'r') as fin:
+    idx = int(fin.readline())
+
+links = os.listdir(pictures_dir)
+bg_path = os.path.join(pictures_dir, links[idx])
+if os.path.islink(bg_path) and os.path.exists(bg_path):
+    subprocess.run(['feh', '--bg-fill', bg_path])
+else:
+    subprocess.run(['feh', '--bg-fill', os.path.expanduser('~/.scripts/aurora.jpg')])
+
+idx = (idx + 1) % len(links)
+with open(os.path.join(scripts_dir, 'pic'), 'w') as fout:
+    fout.write(str(idx))
+

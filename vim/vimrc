@@ -13,8 +13,6 @@
 :set showcmd
 :set cc=80
 
-" Change tabstop to 2 for cpp files
-autocmd Filetype cpp setlocal ts=2 sw=2 expandtab
 " Disable expandtab for go files
 autocmd Filetype go set expandtab!
 
@@ -38,3 +36,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " Save file with Ctrl S
 inoremap <C-S> <Esc>:w<CR>a
 
+call plug#begin('~/.vim/plugged')
+Plug 'elmcast/elm-vim'
+call plug#end()
